@@ -1,22 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
+using System.Globalization;
 
 namespace WowAPI.Models
 {
     public class ItemClassIndexEntity
     {
-        public ItemClassIndexEntity() { }
+        [JsonProperty("item_classes")]
+        public ItemClass[] ItemClasses { get; set; }
+    }
 
-        public ItemClassIndexEntity(int ID, string NAME)
+    public class ItemClass
+    {
+        public ItemClass(int id, string name)
         {
-            id = ID;
-            name = NAME;
+            Id = id;
+            Name = name;
         }
 
-        public int id { get; set; }
-        public string? name { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("id")]
+        public int Id { get; set; }
     }
 }

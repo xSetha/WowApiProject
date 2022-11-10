@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WowAPI.Views"
         mc:Ignorable="d"
         Title="LoginWindow"
         Height="550"
@@ -24,20 +23,20 @@
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0"
                                      EndPoint="1,1">
-                    <GradientStop Color="#0F2027"
+                    <GradientStop Color="{StaticResource AccentColor}"
                                   Offset="0" />
-                    <GradientStop Color="#203A43"
+                    <GradientStop Color="{StaticResource SecondColor}"
                                   Offset="0.25" />
-                    <GradientStop Color="#2C5364"
+                    <GradientStop Color="{StaticResource ThirdColor}"
                                   Offset="0.75" />
                 </LinearGradientBrush>
             </Border.Background>
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0"
                                      EndPoint="1,1">
-                    <GradientStop Color="#0F2027"
+                    <GradientStop Color="{StaticResource AccentColor}"
                                   Offset="0" />
-                    <GradientStop Color="#2C5364"
+                    <GradientStop Color="{StaticResource ThirdColor}"
                                   Offset="0.5" />
                 </LinearGradientBrush>
             </Border.BorderBrush>
@@ -65,76 +64,16 @@
                                Margin="10,0,0,0" />
 
                     <Button x:Name="btnMinimize"
-                            BorderThickness="0"
                             Content="-"
-                            Foreground="White"
-                            FontSize="16"
-                            FontFamily="Montserrat"
-                            Cursor="Hand"
                             Grid.Column="1"
-                            Click="btnMinimize_Click">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background"
-                                        Value="DimGray" />
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver"
-                                             Value="True">
-                                        <Setter Property="Background"
-                                                Value="DarkGray" />
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="18"
-                                        Height="18"
-                                        CornerRadius="9"
-                                        Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center"
-                                                      HorizontalAlignment="Center" />
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
+                            Click="btnMinimize_Click"
+                            Style="{StaticResource WindowButtons}" />
 
                     <Button x:Name="btnClose"
-                            BorderThickness="0"
                             Content="X"
-                            Foreground="White"
-                            FontSize="12"
-                            FontFamily="Montserrat"
-                            Cursor="Hand"
                             Grid.Column="2"
-                            Click="btnClose_Click">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background"
-                                        Value="DimGray" />
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver"
-                                             Value="True">
-                                        <Setter Property="Background"
-                                                Value="DarkGray" />
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="18"
-                                        Height="18"
-                                        CornerRadius="9"
-                                        Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center"
-                                                      HorizontalAlignment="Center" />
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
+                            Click="btnClose_Click"
+                            Style="{StaticResource WindowButtons}" />
                 </Grid>
 
                 <StackPanel Width="250"

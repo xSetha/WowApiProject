@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\wowAPI\WowAPI\WowAPI\App.xaml
-2-1457342498
+4-1959222055
 
 22-123974341
 198-1975097649
-Views\LoginWindow.xaml;Views\MainWindow.xaml;
+Styles\ButtonStyles.xaml;Styles\Colors.xaml;Views\LoginWindow.xaml;Views\MainWindow.xaml;
 
 False
 

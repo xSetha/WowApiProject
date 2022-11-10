@@ -27,3 +27,6 @@ D:\wowAPI\WowAPI\WowAPI\obj\Debug\net6.0-windows\ref\WowAPI.dll
 D:\wowAPI\WowAPI\WowAPI\bin\Debug\net6.0-windows\WowAPI.dll.config
 D:\wowAPI\WowAPI\WowAPI\bin\Debug\net6.0-windows\CommunityToolkit.Mvvm.dll
 D:\wowAPI\WowAPI\WowAPI\bin\Debug\net6.0-windows\HappyStudio.Mvvm.Input.Wpf.dll
+D:\wowAPI\WowAPI\WowAPI\obj\Debug\net6.0-windows\Styles\ButtonStyles.baml
+D:\wowAPI\WowAPI\WowAPI\obj\Debug\net6.0-windows\Styles\Colors.baml
+D:\wowAPI\WowAPI\WowAPI\obj\Debug\net6.0-windows\App.baml

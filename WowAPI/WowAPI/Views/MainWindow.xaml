@@ -5,31 +5,118 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WowAPI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        Title="MainWindow"
+        Height="550"
+        Width="800"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        MouseDown="Window_MouseDown"
+        Background="Transparent"
+        AllowsTransparency="True">
+    <Border CornerRadius="20"
+                BorderThickness="5">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0"
+                                     EndPoint="1,1">
+                    <GradientStop Color="#0F2027"
+                                  Offset="0" />
+                    <GradientStop Color="#2C5364"
+                                  Offset="1" />
+                </LinearGradientBrush>
+            </Border.BorderBrush>
 
-        <Button
-            Grid.Row="0"
-            Grid.Column="0"
-            Margin="10"
-            Content="Get data"
-            Command="{Binding GetDataCommand}"/>
+            <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="1" Grid.Column="0" Grid.RowSpan="4" Grid.ColumnSpan="4">
-            <ListView ItemsSource="{Binding ItemIndexes}" />
-        </StackPanel>
+            <!-- Navigation menu border-->
+                <Border CornerRadius="20,20,0,0"
+                        Grid.Row="0"
+                        Grid.RowSpan="2">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0.5,0"
+                                         EndPoint="0.5,1">
+                        <GradientStop Color="#0F2027"
+                                      Offset="0" />
+                        <GradientStop Color="#203A43"
+                                      Offset="0.5" />
+                        <GradientStop Color="#2C5364"
+                                      Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
 
-    </Grid>
+                <StackPanel  Orientation="Horizontal" Grid.Row="1">
+                    <StackPanel HorizontalAlignment="Left"
+                                Orientation="Horizontal">
+                        <Image  Margin="10 0 0 0" 
+                                Source="/Images/wowlogo.png"
+                                Stretch="Uniform"
+                                Height="70"
+                                Width="70" />
+                        <TextBlock Text="Setty INC."
+                                   Margin="10 0 0 0"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   FontSize="20"
+                                   FontWeight="Medium"
+                                   Foreground="LightGray"
+                                   FontFamily="Montserrat"/>
+                    </StackPanel>
+
+                    <RadioButton Style="{StaticResource MenuItem}"
+                                 Tag="{StaticResource AccentColorBrush}"
+                                 Content="Auction"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 FontSize="20"
+                                 FontWeight="Medium"
+                                 Foreground="LightGray"
+                                 FontFamily="Montserrat" />
+                </StackPanel>
+                </Border>
+
+            <Button x:Name="btnMinimize"
+                    Margin="5 5 35 5"
+                    Content="-"
+                    Grid.Row="0"
+                    HorizontalAlignment="Right"
+                    Click="btnMinimize_Click"
+                    Style="{StaticResource WindowButtons}">
+            </Button>
+
+            <Button x:Name="btnClose"
+                    Margin="5 5 10 5"
+                    BorderThickness="0"
+                    Content="X"
+                    Grid.Row="0"
+                    HorizontalAlignment="Right"
+                    Click="btnClose_Click"
+                    Style="{StaticResource WindowButtons}">
+            </Button>
+
+            <!--Window data border-->
+            <Border CornerRadius="0,0,20,20"
+                    Grid.Row="2">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0.5,1"
+                                         EndPoint="0.5,0">
+                        <GradientStop Color="#0F2027"
+                                      Offset="0" />
+                        <GradientStop Color="#203A43"
+                                      Offset="0.25" />
+                        <GradientStop Color="#2C5364"
+                                      Offset="0.75" />
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+
+        </Grid>
+        
+        
+        </Border>
+
 </Window>

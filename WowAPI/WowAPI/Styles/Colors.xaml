@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Color x:Key="AccentColor"> #0F2027</Color>
+    <Color x:Key="SecondColor"> #203A43</Color>
+    <Color x:Key="ThirdColor">#2C5364</Color>
+
+    <SolidColorBrush x:Key="AccentColorBrush"
+                     Color="#0F2027" />
+    <SolidColorBrush x:Key="SecondColorBrush"
+                     Color="#203A43" />
+    <SolidColorBrush x:Key="ThirdColorBrush"
+                     Color="#2C5364" />
+    <SolidColorBrush x:Key="DimColorBrush"
+                     Color="DimGray" />
+    <SolidColorBrush x:Key="DarkColorBrush"
+                     Color="DarkGray" />
+    
+</ResourceDictionary>
