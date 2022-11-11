@@ -4,23 +4,33 @@
     <Style x:Key="MenuItem"
            TargetType="RadioButton">
         <Setter Property="Height"
-                Value="50" />
+                Value="45" />
+        <Setter Property="Width"
+                Value="120" />
+        <Setter Property="FontSize"
+                Value="20" />
+        <Setter Property="FontFamily"
+                Value="Montserrat" />
+        <Setter Property="FontWeight"
+                Value="Medium" />
         <Setter Property="VerticalAlignment"
                 Value="Bottom" />
         <Setter Property="Margin"
                 Value="5 0 0 0" />
         <Setter Property="Background"
-                Value="Transparent" />
+                Value="{StaticResource EnglishVioletBrush}" />
+        <Setter Property="Opacity"
+                Value="0.7" />
         <Setter Property="Foreground"
-                Value="LightCoral" />
+                Value="{StaticResource LightCyanBrush}" />
         <Setter Property="BorderBrush"
                 Value="Transparent" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="RadioButton">
                     <Border Background="{TemplateBinding Background}"
-                            BorderThickness="4,0,0,0"
-                            BorderBrush="{TemplateBinding BorderBrush}">
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            CornerRadius="15 15 0 0">
                         <ContentPresenter HorizontalAlignment="Center"
                                           VerticalAlignment="Bottom" />
                     </Border>
@@ -31,22 +41,18 @@
         <Style.Triggers>
             <Trigger Property="IsMouseOver"
                      Value="True">
-                <Setter Property="Margin"
-                        Value="5 0 5 0" />
                 <Setter Property="Background"
-                        Value="DarkRed" />
+                        Value="{StaticResource SteelTealBrush}" />
                 <Setter Property="Foreground"
-                        Value="Coral" />
+                        Value="{StaticResource LightCyanBrush}" />
                 <Setter Property="BorderBrush"
                         Value="{Binding Path=Tag, RelativeSource={RelativeSource Self}}" />
             </Trigger>
 
             <Trigger Property="IsChecked"
                      Value="True">
-                <Setter Property="Margin"
-                        Value="5 0 5 0" />
                 <Setter Property="Background"
-                        Value="DarkGoldenrod" />
+                        Value="{StaticResource IndependeceBrush}" />
                 <Setter Property="Foreground"
                         Value="{Binding Path=Tag, RelativeSource={RelativeSource Self}}" />
                 <Setter Property="BorderBrush"
@@ -74,6 +80,40 @@
                     <Border Width="18"
                             Height="18"
                             CornerRadius="9"
+                            Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                                          HorizontalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver"
+                     Value="True">
+                <Setter Property="Background"
+                        Value="DarkGray" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="BaseButtonStyle" TargetType="Button">
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="FontSize"
+                Value="16" />
+        <Setter Property="FontFamily"
+                Value="Montserrat" />
+        <Setter Property="Cursor"
+                Value="Hand" />
+        <Setter Property="Background"
+                Value="{StaticResource DimColorBrush}" />
+        <Setter Property="Foreground"
+                Value="White" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="9"
                             Background="{TemplateBinding Background}">
                         <ContentPresenter VerticalAlignment="Center"
                                           HorizontalAlignment="Center" />

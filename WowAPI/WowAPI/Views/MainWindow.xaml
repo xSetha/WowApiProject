@@ -15,28 +15,31 @@
         Background="Transparent"
         AllowsTransparency="True">
     <Border CornerRadius="20"
-                BorderThickness="5">
-            <Border.BorderBrush>
-                <LinearGradientBrush StartPoint="0,0"
-                                     EndPoint="1,1">
-                    <GradientStop Color="#0F2027"
-                                  Offset="0" />
-                    <GradientStop Color="#2C5364"
-                                  Offset="1" />
-                </LinearGradientBrush>
-            </Border.BorderBrush>
+            BorderThickness="5">
+        <Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0.5,0"
+                                 EndPoint="0.5,1">
+                <GradientStop Color="#0F2027"
+                              Offset="0" />
+                <GradientStop Color="#203A43"
+                              Offset="0.5" />
+                <GradientStop Color="#2C5364"
+                              Offset="1" />
+            </LinearGradientBrush>
+        </Border.BorderBrush>
 
-            <Grid>
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30" />
-                <RowDefinition Height="100"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="70" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <!-- Navigation menu border-->
-                <Border CornerRadius="20,20,0,0"
-                        Grid.Row="0"
-                        Grid.RowSpan="2">
+            <Border CornerRadius="15,15,0,0"
+                    Grid.RowSpan="2"
+                    Grid.ColumnSpan="4">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0.5,0"
                                          EndPoint="0.5,1">
@@ -48,39 +51,51 @@
                                       Offset="1" />
                     </LinearGradientBrush>
                 </Border.Background>
-
-                <StackPanel  Orientation="Horizontal" Grid.Row="1">
+                <StackPanel Grid.Row="1"
+                            Orientation="Horizontal">
                     <StackPanel HorizontalAlignment="Left"
-                                Orientation="Horizontal">
-                        <Image  Margin="10 0 0 0" 
+                                Orientation="Vertical"
+                                Margin="0 10 0 0">
+
+                        <Image  Margin="10 10 0 0"
                                 Source="/Images/wowlogo.png"
                                 Stretch="Uniform"
-                                Height="70"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Height="50"
                                 Width="70" />
                         <TextBlock Text="Setty INC."
                                    Margin="10 0 0 0"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
-                                   FontSize="20"
+                                   FontSize="12"
                                    FontWeight="Medium"
-                                   Foreground="LightGray"
-                                   FontFamily="Montserrat"/>
+                                   Foreground="{StaticResource LightColorBrush}"
+                                   FontFamily="Montserrat" />
                     </StackPanel>
 
-                    <RadioButton Style="{StaticResource MenuItem}"
-                                 Tag="{StaticResource AccentColorBrush}"
-                                 Content="Auction"
-                                 HorizontalAlignment="Center"
-                                 VerticalAlignment="Center"
-                                 FontSize="20"
-                                 FontWeight="Medium"
-                                 Foreground="LightGray"
-                                 FontFamily="Montserrat" />
+                    <RadioButton Margin="10 0 0 0"
+                                 Style="{StaticResource MenuItem}"
+                                 Tag="{StaticResource LightCyanBrush}"
+                                 Content="Auction" />
+                    <RadioButton Margin="0"
+                                 Style="{StaticResource MenuItem}"
+                                 Tag="{StaticResource LightCyanBrush}"
+                                 Content="Arriba" />
                 </StackPanel>
-                </Border>
+
+            </Border>
+
+            <TextBlock Text="AUCTIONATOR"
+                       Grid.Column="0"
+                       Foreground="DarkGray"
+                       FontSize="10"
+                       FontFamily="Montserrat"
+                       VerticalAlignment="Center"
+                       Margin="12,0,0,0" />
 
             <Button x:Name="btnMinimize"
-                    Margin="5 5 35 5"
+                    Margin="5,5,35,5"
                     Content="-"
                     Grid.Row="0"
                     HorizontalAlignment="Right"
@@ -89,34 +104,40 @@
             </Button>
 
             <Button x:Name="btnClose"
-                    Margin="5 5 10 5"
-                    BorderThickness="0"
+                    Margin="5,5,10,5"
                     Content="X"
                     Grid.Row="0"
+                    Grid.Column="3"
                     HorizontalAlignment="Right"
                     Click="btnClose_Click"
                     Style="{StaticResource WindowButtons}">
             </Button>
 
             <!--Window data border-->
-            <Border CornerRadius="0,0,20,20"
-                    Grid.Row="2">
+            <Border CornerRadius="0,0,15,15"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="4"
+                    Margin="0,69,0,0"
+                    Grid.RowSpan="3">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0.5,1"
                                          EndPoint="0.5,0">
-                        <GradientStop Color="#0F2027"
+                        <GradientStop Color="{StaticResource AccentColor}"
                                       Offset="0" />
-                        <GradientStop Color="#203A43"
+                        <GradientStop Color="{StaticResource AccentColorLight}"
                                       Offset="0.25" />
-                        <GradientStop Color="#2C5364"
+                        <GradientStop Color="{StaticResource AccentColorLighter}"
                                       Offset="0.75" />
                     </LinearGradientBrush>
                 </Border.Background>
-            </Border>
 
+                <ListView Background="{StaticResource IndependeceBrush}"
+                          Margin="5 0 5 5"
+                          Opacity="0.7">
+                </ListView>
+            </Border>
         </Grid>
-        
-        
-        </Border>
+    </Border>
 
 </Window>

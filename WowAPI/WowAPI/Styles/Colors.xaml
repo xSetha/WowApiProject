@@ -2,18 +2,52 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Color x:Key="AccentColor"> #0F2027</Color>
-    <Color x:Key="SecondColor"> #203A43</Color>
-    <Color x:Key="ThirdColor">#2C5364</Color>
+    <Color x:Key="AccentColorLight"> #203A43</Color>
+    <Color x:Key="AccentColorLighter">#2C5364</Color>
 
     <SolidColorBrush x:Key="AccentColorBrush"
-                     Color="#0F2027" />
-    <SolidColorBrush x:Key="SecondColorBrush"
-                     Color="#203A43" />
-    <SolidColorBrush x:Key="ThirdColorBrush"
-                     Color="#2C5364" />
+                     Color="{StaticResource AccentColor}" />
+    <SolidColorBrush x:Key="AccentColorBrushLight"
+                     Color="{StaticResource AccentColorLight}" />
+    <SolidColorBrush x:Key="AccentColorBrushLighter"
+                     Color="{StaticResource AccentColorLighter}" />
+
+    <Color x:Key="SecondaryColor">#7F7FD5</Color>
+    <Color x:Key="SecondaryColorLight">#86A8E7</Color>
+    <Color x:Key="SecondaryColorLighter">#91EAE4</Color>
+
+    <SolidColorBrush x:Key="SecondaryColorBrush"
+                     Color="{StaticResource SecondaryColor}" />
+    <SolidColorBrush x:Key="SecondaryColorBrushLight"
+                     Color="{StaticResource SecondaryColorLight}" />
+    <SolidColorBrush x:Key="SecondaryColorBrushLighter"
+                     Color="{StaticResource SecondaryColorLighter}" />
+
+    <Color x:Key="EnglishViolet">#493548</Color>
+    <Color x:Key="Independece">#4B4E6D</Color>
+    <Color x:Key="SteelTeal">#6A8D92</Color>
+    <Color x:Key="DarkSeaGreen">#80B192</Color>
+    <Color x:Key="Beige">#A1E887</Color>
+    <Color x:Key="LightCyan">#DDFFF7</Color>
+
+    <SolidColorBrush x:Key="EnglishVioletBrush"
+                     Color="{StaticResource EnglishViolet}" />
+    <SolidColorBrush x:Key="IndependeceBrush"
+                     Color="{StaticResource Independece}" />
+    <SolidColorBrush x:Key="SteelTealBrush"
+                     Color="{StaticResource SteelTeal}" />
+    <SolidColorBrush x:Key="DarkSeaGreenBrush"
+                     Color="{StaticResource DarkSeaGreen}" />
+    <SolidColorBrush x:Key="BeigeBrush"
+                     Color="{StaticResource Beige}" />
+    <SolidColorBrush x:Key="LightCyanBrush"
+                     Color="{StaticResource LightCyan}" />
+
     <SolidColorBrush x:Key="DimColorBrush"
                      Color="DimGray" />
     <SolidColorBrush x:Key="DarkColorBrush"
                      Color="DarkGray" />
-    
+    <SolidColorBrush x:Key="LightColorBrush"
+                     Color="LightGray" />
+
 </ResourceDictionary>

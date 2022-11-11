@@ -25,9 +25,9 @@
                                      EndPoint="1,1">
                     <GradientStop Color="{StaticResource AccentColor}"
                                   Offset="0" />
-                    <GradientStop Color="{StaticResource SecondColor}"
+                    <GradientStop Color="{StaticResource AccentColorLight}"
                                   Offset="0.25" />
-                    <GradientStop Color="{StaticResource ThirdColor}"
+                    <GradientStop Color="Transparent"
                                   Offset="0.75" />
                 </LinearGradientBrush>
             </Border.Background>
@@ -36,7 +36,7 @@
                                      EndPoint="1,1">
                     <GradientStop Color="{StaticResource AccentColor}"
                                   Offset="0" />
-                    <GradientStop Color="{StaticResource ThirdColor}"
+                    <GradientStop Color="{StaticResource AccentColorLight}"
                                   Offset="0.5" />
                 </LinearGradientBrush>
             </Border.BorderBrush>
@@ -99,40 +99,12 @@
                                TextAlignment="Justify" />
 
                     <Button x:Name="btnLogIn"
-                            BorderThickness="0"
                             Content="LOG IN"
-                            Foreground="White"
-                            FontSize="16"
-                            FontFamily="Montserrat"
-                            Cursor="Hand"
+                            Width="150"
+                            Height="40"
                             Margin="0,20,0,0"
-                            Command="{Binding LogInCommand}">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background"
-                                        Value="DimGray" />
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver"
-                                             Value="True">
-                                        <Setter Property="Background"
-                                                Value="DarkGray" />
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="150"
-                                        Height="40"
-                                        CornerRadius="9"
-                                        Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center"
-                                                      HorizontalAlignment="Center" />
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
+                            Command="{Binding LogInCommand}"
+                            Style="{StaticResource BaseButtonStyle}" />
                 </StackPanel>
 
             </Grid>
