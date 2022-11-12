@@ -32,7 +32,7 @@
                             BorderBrush="{TemplateBinding BorderBrush}"
                             CornerRadius="15 15 0 0">
                         <ContentPresenter HorizontalAlignment="Center"
-                                          VerticalAlignment="Bottom" />
+                                          VerticalAlignment="Center" />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>

@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "WowAPI/1.0.0": {
         "dependencies": {
+          "FontAwesome.Sharp": "6.1.1",
           "HappyStudio.Mvvm.Input.Wpf": "1.0.1",
           "Newtonsoft.Json": "13.0.1",
           "RestSharp": "108.0.2"
@@ -21,6 +22,14 @@
           "lib/net5.0/CommunityToolkit.Mvvm.dll": {
             "assemblyVersion": "7.1.0.0",
             "fileVersion": "7.1.2.1"
+          }
+        }
+      },
+      "FontAwesome.Sharp/6.1.1": {
+        "runtime": {
+          "lib/net6.0-windows7.0/FontAwesome.Sharp.dll": {
+            "assemblyVersion": "6.1.1.0",
+            "fileVersion": "6.1.1.0"
           }
         }
       },
@@ -65,6 +74,13 @@
       "sha512": "sha512-/zEpNH3FIBFY2iZRBi+S3Sia3q2yJgy1IQHnWRW7MdhQIe3IGcA1TGqJdbtjiJBmNy4v7kkPdNzgYlvvNDjXZg==",
       "path": "communitytoolkit.mvvm/7.1.2",
       "hashPath": "communitytoolkit.mvvm.7.1.2.nupkg.sha512"
+    },
+    "FontAwesome.Sharp/6.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-p6dnSMcKQg790vGSJgvFk6S8gXQnEcCugfaJ21WFxZz9h+9KyxL+sX6kbGv8p4iVoX/e5BAMnTV4QJFJvx8QxQ==",
+      "path": "fontawesome.sharp/6.1.1",
+      "hashPath": "fontawesome.sharp.6.1.1.nupkg.sha512"
     },
     "HappyStudio.Mvvm.Input.Wpf/1.0.1": {
       "type": "package",

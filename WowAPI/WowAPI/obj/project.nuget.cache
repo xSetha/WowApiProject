@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "wv5doqHZuDWTAoNn4+beZtgWyQ5be5zDD57m3QYyHilvglzgv2yIUMCI2APyEFYqx+NuWtuSMaS6gxu+f9plNg==",
+  "dgSpecHash": "DN9A3b3bMlrk57ndS9u232UvV8MvR74/XHo7WETG718gVpE0NwYKdmREW+1W54oAC2mDyR+VnicWTcSJ4olqpw==",
   "success": true,
   "projectFilePath": "D:\\wowAPI\\WowAPI\\WowAPI\\WowAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\communitytoolkit.mvvm\\7.1.2\\communitytoolkit.mvvm.7.1.2.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\fontawesome.sharp\\6.1.1\\fontawesome.sharp.6.1.1.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\happystudio.mvvm.input.wpf\\1.0.1\\happystudio.mvvm.input.wpf.1.0.1.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\restsharp\\108.0.2\\restsharp.108.0.2.nupkg.sha512"

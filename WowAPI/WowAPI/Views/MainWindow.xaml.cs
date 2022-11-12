@@ -1,14 +1,8 @@
-﻿using Newtonsoft.Json;
-using RestSharp;
-using System;
-using System.Collections.ObjectModel;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
+﻿using System;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
-using WowAPI.Models;
+using System.Windows.Interop;
 
 namespace WowAPI
 {
@@ -24,12 +18,22 @@ namespace WowAPI
             InitializeComponent();
         }
 
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        [DllImport("user32.dll")]
+        public static extern IntPtr SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void StackPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            WindowInteropHelper helper = new WindowInteropHelper(this);
+            SendMessage(helper.Handle, 161, 2, 0);
+        }
+
+        private void btnMaximize_Click(object sender, RoutedEventArgs e)
+        {
+            if (WindowState == WindowState.Normal)
             {
-                DragMove();
+                WindowState = WindowState.Maximized;
             }
+            else WindowState = WindowState.Normal;
         }
 
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
@@ -40,6 +44,11 @@ namespace WowAPI
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void StackPanel_MouseEnter(object sender, MouseEventArgs e)
+        {
+            this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
         }
     }
 }
