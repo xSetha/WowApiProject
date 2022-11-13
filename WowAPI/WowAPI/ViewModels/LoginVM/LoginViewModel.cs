@@ -4,7 +4,7 @@ using System.Windows;
 using WowAPI.Constants;
 using WowAPI.Models;
 using WowAPI.Properties;
-using WowAPI.ViewModels.MainVm;
+using WowAPI.ViewModels.MainVM;
 
 namespace WowAPI.ViewModels.LoginVM
 {

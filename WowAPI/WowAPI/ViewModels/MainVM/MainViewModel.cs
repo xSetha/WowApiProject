@@ -1,48 +1,84 @@
-﻿using System.Collections.ObjectModel;
-using System.Linq;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Input;
 using WowAPI.Helpers;
 using WowAPI.Models;
 
-namespace WowAPI.ViewModels.MainVm
+namespace WowAPI.ViewModels.MainVM
 {
-    public class MainViewModel : BaseViewModel
+    public partial class MainViewModel : BaseViewModel
     {
-        private string labelContent = "sgpl";
-        public string LabelContent
-        {
-            get => labelContent;
-            set => SetValue(ref labelContent, value);
-        }
 
         HttpClientHelper httpClientHelper = new HttpClientHelper();
         ObservableCollection<ItemClass> itemClass = new ObservableCollection<ItemClass>();
+        ObservableCollection<ItemSubClass> itemSubClass = new ObservableCollection<ItemSubClass>();
 
-        public ObservableCollection<ItemClass> ItemClass
+        public MainViewModel()
         {
-            get => itemClass;
-            set => SetValue(ref itemClass, value);
+            InitializeData();
         }
 
-        public ICommand GetDataCommand => CreateAsyncCommand((param) => ExecuteGetData(), () => true);
-
-        public async Task ExecuteGetData()
+        private async void InitializeData()
         {
-            HttpDataResponse<ItemClassIndexEntity> result = await httpClientHelper.GetAsync<ItemClassIndexEntity>($"https://eu.api.blizzard.com/data/wow/item-class/index?namespace=static-eu&locale=en_US&access_token={Properties.Settings.Default.AccesTokenAPI}");
+            await SetupItemClasses();
+            await SetupItemSubClasses();
+        }
+
+        private async Task SetupItemClasses()
+        {
+            HttpDataResponse<ItemClassEntity> result = await httpClientHelper.GetAsync<ItemClassEntity>($"https://eu.api.blizzard.com/data/wow/item-class/index?namespace=static-eu&locale=en_US&access_token={Properties.Settings.Default.AccesTokenAPI}");
 
             if (result is null || result.Data is null)
             {
                 MessageBox.Show("This shit aint good.");
+                return;
             }
 
-            ProcessResponse(result.Data);
+            ProcessItemClassesResponse(result.Data);
         }
 
-        private void ProcessResponse(ItemClassIndexEntity? itemClassIndexEntities)
+        public async Task SetupItemSubClasses()
         {
-            foreach (ItemClass item in itemClassIndexEntities.ItemClasses)
+            HttpDataResponse<ItemSubClassesEntity> result = await httpClientHelper.GetAsync<ItemSubClassesEntity>($"https://eu.api.blizzard.com/data/wow/item-class/0?namespace=static-eu&locale=en_US&access_token={Properties.Settings.Default.AccesTokenAPI}");
+
+            if (result is null || result.Data is null)
+            {
+                MessageBox.Show("This shit aint good.");
+                return;
+            }
+
+            ProcessItemSubClassesResponse(result.Data);
+        }
+
+        private void ProcessItemSubClassesResponse(ItemSubClassesEntity data)
+        {
+            if (data is null) 
+            {
+                MessageBox.Show("This shit aint good.");
+                return;
+            }
+
+            foreach (ItemSubClass item in data.ItemSubClasses)
+            {
+                itemSubClass.Add(item);
+            }
+        }
+
+        public async Task ExecuteGetData()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ProcessItemClassesResponse(ItemClassEntity? itemClassEntities)
+        {
+            if (itemClassEntities is null) 
+            {
+                MessageBox.Show("This shit aint good.");
+                return;
+            }
+
+            foreach (ItemClass item in itemClassEntities.ItemClasses)
             {
                 itemClass.Add(item);
             }

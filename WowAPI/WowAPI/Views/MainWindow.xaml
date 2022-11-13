@@ -4,13 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WowAPI"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         mc:Ignorable="d"
         Title="MainWindow"
-        Height="550"
-        Width="800"
+        Height="805"
+        Width="1200"
+        MinWidth="800"
         WindowStyle="None"
-        ResizeMode="NoResize"
+        WindowState="Normal"
+        ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         AllowsTransparency="True">
@@ -95,6 +98,7 @@
                        FontSize="10"
                        FontFamily="Montserrat"
                        VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
                        Margin="12,0,0,0" />
 
             <Button x:Name="btnMaximize"
@@ -148,7 +152,7 @@
                 </Border.Background>
             </Border>
 
-            <Grid Grid.Row="3">
+            <Grid Grid.Row="3" VerticalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
@@ -159,7 +163,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
@@ -167,40 +171,12 @@
                     Margin="5 0 0 5"
                     CornerRadius="15 0 0 15" 
                     BorderThickness="2"
-                        BorderBrush="{StaticResource LightCyanBrush}"
+                    BorderBrush="{StaticResource LightCyanBrush}"
                     Grid.Column="0">
                     <ListView ItemsSource="{Binding ItemClass}"
-                              Height="435"
-                              Grid.Row="0"
-                              Grid.Column="0"
-                              VerticalAlignment="Top"
-                              Background="Transparent"
-                              ScrollViewer.CanContentScroll="True"
-                              ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                              ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                              BorderBrush="Transparent">
-
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <Border Width="150"
-                                            Background="{StaticResource IndependeceBrush}"
-                                            BorderBrush="{StaticResource DarkColorBrush}"
-                                            BorderThickness="1"
-                                            CornerRadius="8"
-                                            VerticalAlignment="Center"
-                                            HorizontalAlignment="Center"
-                                            Padding="5">
-                                        <StackPanel>
-                                            <TextBlock Text="{Binding Name}"
-                                                       Style="{StaticResource ListViewTextBlockStyle}"
-                                                       VerticalAlignment="Center"
-                                                       HorizontalAlignment="Left" />
-                                        </StackPanel>
-                                    </Border>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
+                              Margin="5"
+                              Style="{StaticResource listViewStyle}"
+                              ItemContainerStyle="{StaticResource listViewItemStyle}">
                     </ListView>
                 </Border>
 
@@ -209,52 +185,21 @@
                         BorderThickness="2"
                         BorderBrush="{StaticResource LightCyanBrush}"
                         Grid.Column="1">
-                    <ListView ItemsSource="{Binding ItemClass}"
-                              Height="435"
-                              Grid.Row="0"
-                              Grid.Column="0"
-                              VerticalAlignment="Top"
-                              Background="Transparent"
-                              ScrollViewer.CanContentScroll="True"
-                              ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                              ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                              BorderBrush="Transparent">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <Border Width="150"
-                                            Background="{StaticResource IndependeceBrush}"
-                                            BorderBrush="{StaticResource DarkColorBrush}"
-                                            BorderThickness="1"
-                                            CornerRadius="8"
-                                            VerticalAlignment="Center"
-                                            HorizontalAlignment="Center"
-                                            Padding="5">
-                                        <StackPanel>
-                                            <TextBlock Text="{Binding Name}"
-                                                       Style="{StaticResource ListViewTextBlockStyle}"
-                                                       VerticalAlignment="Center"
-                                                       HorizontalAlignment="Left" />
-                                        </StackPanel>
-                                    </Border>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
+                    <ListView ItemsSource="{Binding ItemSubClass}"
+                              Margin="5"
+                              ItemContainerStyle="{StaticResource listViewItemStyle}"
+                              Style="{StaticResource listViewStyle}">
                     </ListView>
                 </Border>
 
                 <Border CornerRadius="0 15 15 0"
-                        Margin="0 0 0 5"
+                        Margin="0 0 5 5"
                         BorderThickness="2"
                         Background="{StaticResource IndependeceBrush}"
                         BorderBrush="{StaticResource LightCyanBrush}"
                         Grid.Column="2">
                     <ListView ItemsSource="{Binding ItemClass}"
-                              Grid.Row="0"
-                              Grid.Column="2"
                               BorderThickness="0"
-                              Height="435"
-                              Margin="0 0 5 5"
                               Background="Transparent"
                               ScrollViewer.CanContentScroll="True"
                               ScrollViewer.VerticalScrollBarVisibility="Hidden"
@@ -263,6 +208,7 @@
                     </ListView>
                 </Border>
             </Grid>
+            
             <Button x:Name="btnGetData"
                     Grid.Row="4"
                     Grid.Column="3"
@@ -271,7 +217,7 @@
                     Content="Get data"
                     Width="100"
                     Height="40"
-                    Margin="20"
+                    Margin="6"
                     Command="{Binding GetDataCommand}"
                     Style="{StaticResource BaseButtonStyle}" />
         </Grid>

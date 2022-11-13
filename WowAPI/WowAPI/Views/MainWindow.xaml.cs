@@ -48,7 +48,12 @@ namespace WowAPI
 
         private void StackPanel_MouseEnter(object sender, MouseEventArgs e)
         {
-            this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
+            this.MaxHeight = SystemParameters.MaximumWindowTrackHeight;
+        }
+
+        private void ListView_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
