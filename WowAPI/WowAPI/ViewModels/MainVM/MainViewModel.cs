@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls.Primitives;
 using WowAPI.Helpers;
 using WowAPI.Models;
 
@@ -13,6 +14,8 @@ namespace WowAPI.ViewModels.MainVM
         HttpClientHelper httpClientHelper = new HttpClientHelper();
         ObservableCollection<ItemClass> itemClass = new ObservableCollection<ItemClass>();
         ObservableCollection<ItemSubClass> itemSubClass = new ObservableCollection<ItemSubClass>();
+        int currentItemClassIndex = 0;
+        int currentItemSubClassIndex = 0;
 
         public MainViewModel()
         {
@@ -61,11 +64,19 @@ namespace WowAPI.ViewModels.MainVM
 
             foreach (ItemSubClass item in data.ItemSubClasses)
             {
+                item.CheckedSubItemStatus = false;
                 itemSubClass.Add(item);
             }
+
+            itemSubClass[0].CheckedSubItemStatus = true;
         }
 
-        public async Task ExecuteGetData()
+        public void ExecuteItemClass()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ExecuteSubItemClass()
         {
             throw new NotImplementedException();
         }
@@ -80,8 +91,11 @@ namespace WowAPI.ViewModels.MainVM
 
             foreach (ItemClass item in itemClassEntities.ItemClasses)
             {
+                item.CheckedItemStatus = false;
                 itemClass.Add(item);
             }
+
+            itemClass[0].CheckedItemStatus = true;
         }
     }
 }

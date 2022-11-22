@@ -167,29 +167,46 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <Border 
-                    Margin="5 0 0 5"
-                    CornerRadius="15 0 0 15" 
-                    BorderThickness="2"
-                    BorderBrush="{StaticResource LightCyanBrush}"
-                    Grid.Column="0">
-                    <ListView ItemsSource="{Binding ItemClass}"
-                              Margin="5"
-                              Style="{StaticResource listViewStyle}"
-                              ItemContainerStyle="{StaticResource listViewItemStyle}">
-                    </ListView>
+                <Border Margin="5 0 0 5"
+                        CornerRadius="15 0 0 15"
+                        BorderThickness="2"
+                        BorderBrush="{StaticResource LightCyanBrush}"
+                        Grid.Column="0"
+                        Padding="5">
+                    <ItemsControl ItemsSource="{Binding ItemClass}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <ToggleButton x:Name="tglBTN" 
+                                              Content="{Binding Name}"
+                                              Style="{StaticResource ItemsControlToggleButtonStyle}"
+                                              Command="{Binding RelativeSource={RelativeSource AncestorType=Border}, Path=DataContext.ItemClassCommand}"
+                                              CommandParameter="{Binding ElementName=tglBTN, Path=Content}"
+                                              IsChecked="{Binding CheckedItemStatus}"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
                 </Border>
 
                 <Border CornerRadius="0"
                         Margin="0 0 0 5"
                         BorderThickness="2"
                         BorderBrush="{StaticResource LightCyanBrush}"
-                        Grid.Column="1">
-                    <ListView ItemsSource="{Binding ItemSubClass}"
-                              Margin="5"
-                              ItemContainerStyle="{StaticResource listViewItemStyle}"
-                              Style="{StaticResource listViewStyle}">
-                    </ListView>
+                        Grid.Column="1"
+                        Padding="5">
+                    <ItemsControl 
+                        x:Name="itemControlMain"
+                        ItemsSource="{Binding ItemSubClass}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <ToggleButton x:Name="tglBTN1" 
+                                              Content="{Binding Name}"
+                                              Style="{StaticResource ItemsControlToggleButtonStyle}"
+                                              Command="{Binding RelativeSource={RelativeSource AncestorType=Border}, Path=DataContext.SubItemClassCommand}"
+                                              CommandParameter="{Binding ElementName=tglBTN1, Path=Content}"
+                                              IsChecked="{Binding CheckedSubItemStatus}"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
                 </Border>
 
                 <Border CornerRadius="0 15 15 0"

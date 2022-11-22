@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,5 +21,6 @@ namespace WowAPI.Models
 
         [JsonProperty("id")]
         public int Id { get; set; }
+        public bool CheckedSubItemStatus { get; set; }
     }
 }

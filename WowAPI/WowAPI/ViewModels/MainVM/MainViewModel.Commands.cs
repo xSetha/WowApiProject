@@ -9,6 +9,7 @@ namespace WowAPI.ViewModels.MainVM
 {
     public partial class MainViewModel
     {
-        public ICommand GetDataCommand => CreateAsyncCommand((param) => ExecuteGetData(), () => true);
+        public ICommand ItemClassCommand => CreateCommand(() => ExecuteItemClass(), () => true);
+        public ICommand SubItemClassCommand => CreateCommand(() => ExecuteSubItemClass(), () => true);
     }
 }
