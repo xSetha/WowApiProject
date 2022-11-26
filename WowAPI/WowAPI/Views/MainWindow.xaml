@@ -3,9 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WowAPI"
+        xmlns:local="clr-namespace:WowAPI.Views"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        xmlns:viewModel="clr-namespace:WowAPI.ViewModels.MainVM"
+        xmlns:viewModelAuction="clr-namespace:WowAPI.ViewModels.AuctionVM"
         mc:Ignorable="d"
         Title="MainWindow"
         Height="805"
@@ -17,6 +19,13 @@
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         AllowsTransparency="True">
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModelAuction:AuctionViewModel}">
+            <local:AuctionView />
+        </DataTemplate>
+    </Window.Resources>
+
     <Border CornerRadius="20"
             BorderThickness="4">
         <Border.BorderBrush>
@@ -84,6 +93,8 @@
                     <RadioButton Margin="10 0 0 0"
                                  Style="{StaticResource MenuItem}"
                                  Tag="{StaticResource LightCyanBrush}"
+                                 Command="{Binding OpenAuctionViewCommand}"
+                                 IsChecked="True"
                                  Content="Auction" />
                     <RadioButton Margin="0"
                                  Style="{StaticResource MenuItem}"
@@ -152,92 +163,9 @@
                 </Border.Background>
             </Border>
 
-            <Grid Grid.Row="3" VerticalAlignment="Stretch">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-
-                </Grid.ColumnDefinitions>
-
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-
-                <Border Margin="5 0 0 5"
-                        CornerRadius="15 0 0 15"
-                        BorderThickness="2"
-                        BorderBrush="{StaticResource LightCyanBrush}"
-                        Grid.Column="0"
-                        Padding="5">
-                    <ItemsControl ItemsSource="{Binding ItemClass}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <ToggleButton x:Name="tglBTN" 
-                                              Content="{Binding Name}"
-                                              Style="{StaticResource ItemsControlToggleButtonStyle}"
-                                              Command="{Binding RelativeSource={RelativeSource AncestorType=Border}, Path=DataContext.ItemClassCommand}"
-                                              CommandParameter="{Binding ElementName=tglBTN, Path=Content}"
-                                              IsChecked="{Binding CheckedItemStatus}"/>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </Border>
-
-                <Border CornerRadius="0"
-                        Margin="0 0 0 5"
-                        BorderThickness="2"
-                        BorderBrush="{StaticResource LightCyanBrush}"
-                        Grid.Column="1"
-                        Padding="5">
-                    <ItemsControl 
-                        x:Name="itemControlMain"
-                        ItemsSource="{Binding ItemSubClass}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <ToggleButton x:Name="tglBTN1" 
-                                              Content="{Binding Name}"
-                                              Style="{StaticResource ItemsControlToggleButtonStyle}"
-                                              Command="{Binding RelativeSource={RelativeSource AncestorType=Border}, Path=DataContext.SubItemClassCommand}"
-                                              CommandParameter="{Binding ElementName=tglBTN1, Path=Content}"
-                                              IsChecked="{Binding CheckedSubItemStatus}"/>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </Border>
-
-                <Border CornerRadius="0 15 15 0"
-                        Margin="0 0 5 5"
-                        BorderThickness="2"
-                        Background="{StaticResource IndependeceBrush}"
-                        BorderBrush="{StaticResource LightCyanBrush}"
-                        Grid.Column="2">
-                    <ListView ItemsSource="{Binding ItemClass}"
-                              BorderThickness="0"
-                              Background="Transparent"
-                              ScrollViewer.CanContentScroll="True"
-                              ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                              ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                              BorderBrush="{StaticResource IndependeceBrush}">
-                    </ListView>
-                </Border>
-            </Grid>
-            
-            <Button x:Name="btnGetData"
-                    Grid.Row="4"
-                    Grid.Column="3"
-                    VerticalAlignment="Bottom"
-                    HorizontalAlignment="Right"
-                    Content="Get data"
-                    Width="100"
-                    Height="40"
-                    Margin="6"
-                    Command="{Binding GetDataCommand}"
-                    Style="{StaticResource BaseButtonStyle}" />
+            <ContentControl Content="{Binding CurrentChildView}"
+                            Grid.Row="2"
+                            Margin="10 0 10 10" />
         </Grid>
     </Border>
-
 </Window>

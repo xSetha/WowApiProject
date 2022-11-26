@@ -21,6 +21,5 @@ namespace WowAPI.Models
 
         [JsonProperty("id")]
         public int Id { get; set; }
-        public bool CheckedSubItemStatus { get; set; }
     }
 }

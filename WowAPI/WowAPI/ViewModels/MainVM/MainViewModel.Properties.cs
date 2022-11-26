@@ -5,16 +5,18 @@ namespace WowAPI.ViewModels.MainVM
 {
     public partial class MainViewModel
     {
-        public ObservableCollection<ItemClass> ItemClass
+        public BaseViewModel CurrentChildView
         {
-            get => itemClass;
-            set => SetValue(ref itemClass, value);
-        }
+            get
+            {
+                return currentChildView;
+            }
 
-        public ObservableCollection<ItemSubClass> ItemSubClass
-        {
-            get => itemSubClass;
-            set => SetValue(ref itemSubClass, value);
+            set
+            {
+                currentChildView = value;
+                OnPropertyChanged(nameof(CurrentChildView));
+            }
         }
     }
 }

@@ -9,7 +9,6 @@ namespace WowAPI.ViewModels.MainVM
 {
     public partial class MainViewModel
     {
-        public ICommand ItemClassCommand => CreateCommand(() => ExecuteItemClass(), () => true);
-        public ICommand SubItemClassCommand => CreateCommand(() => ExecuteSubItemClass(), () => true);
+        public ICommand OpenAuctionViewCommand { get; set; }
     }
 }

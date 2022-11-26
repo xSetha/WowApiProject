@@ -27,7 +27,6 @@ namespace WowAPI.ViewModels.LoginVM
             MainViewModel mainViewModel = new MainViewModel();
             window.DataContext = mainViewModel;
             window.Show();
-
         }
 
         private OAuthToken GetAuthentication()
